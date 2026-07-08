@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -31,10 +31,10 @@ function AnimatedRoutes() {
 
 export default function App() {
   return (
-    <Router basename={import.meta.env.PROD ? "/Tube-Recipe-Book" : "/"}>
+    <>
       <Navbar />
       <AnimatedRoutes />
       <Footer />
-    </Router>
+    </>
   );
 }
