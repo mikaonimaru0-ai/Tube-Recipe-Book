@@ -1,35 +1,10 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useDrinkContext } from "../context/DrinkContext";
 
 export default function DrinkCard({ drink }) {
-  const [isFavorite, setIsFavorite] = useState(false);
+  const { isFavorite, toggleFavorite } = useDrinkContext();
 
-  useEffect(() => {
-    const savedFavorites =
-      JSON.parse(localStorage.getItem("favoriteDrinks")) || [];
-
-    const alreadySaved = savedFavorites.some((item) => item.id === drink.id);
-    setIsFavorite(alreadySaved);
-  }, [drink.id]);
-
-  const handleFavoriteClick = () => {
-    const savedFavorites =
-      JSON.parse(localStorage.getItem("favoriteDrinks")) || [];
-
-    if (isFavorite) {
-      const updatedFavorites = savedFavorites.filter(
-        (item) => item.id !== drink.id
-      );
-
-      localStorage.setItem("favoriteDrinks", JSON.stringify(updatedFavorites));
-      setIsFavorite(false);
-    } else {
-      const updatedFavorites = [...savedFavorites, drink];
-
-      localStorage.setItem("favoriteDrinks", JSON.stringify(updatedFavorites));
-      setIsFavorite(true);
-    }
-  };
+  const saved = isFavorite(drink.id);
 
   return (
     <div className="drink-card">
@@ -38,10 +13,10 @@ export default function DrinkCard({ drink }) {
 
         <button
           type="button"
-          className={`favorite-btn ${isFavorite ? "saved" : ""}`}
-          onClick={handleFavoriteClick}
+          className={`favorite-btn ${saved ? "saved" : ""}`}
+          onClick={() => toggleFavorite(drink)}
         >
-          {isFavorite ? "♥" : "♡"}
+          {saved ? "♥" : "♡"}
         </button>
       </div>
 
