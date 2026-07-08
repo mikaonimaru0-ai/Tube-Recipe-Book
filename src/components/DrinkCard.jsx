@@ -1,10 +1,8 @@
-import { Link } from "react-router-dom";
 import { useDrinkContext } from "../context/DrinkContext";
 
 export default function DrinkCard({ drink }) {
   const { isFavorite, toggleFavorite } = useDrinkContext();
-
-  const saved = isFavorite(drink.id);
+  const favorited = isFavorite(drink.id);
 
   return (
     <div className="drink-card">
@@ -13,10 +11,10 @@ export default function DrinkCard({ drink }) {
 
         <button
           type="button"
-          className={`favorite-btn ${saved ? "saved" : ""}`}
+          className={`favorite-btn ${favorited ? "saved" : ""}`}
           onClick={() => toggleFavorite(drink)}
         >
-          {saved ? "♥" : "♡"}
+          {favorited ? "♥️" : "♡"}
         </button>
       </div>
 
