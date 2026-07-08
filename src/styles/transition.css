@@ -1,15 +1,13 @@
-.page-transition {
-  animation: fadeSlide 0.45s ease;
+.page {
+  transition: all 0.2s ease;
 }
 
-@keyframes fadeSlide {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
+.fadeIn {
+  opacity: 1;
+  transform: translateY(0px);
+}
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.fadeOut {
+  opacity: 0;
+  transform: translateY(10px);
 }

@@ -55,3 +55,33 @@
 .dot.active {
   background: white;
 }
+
+@media (max-width: 768px) {
+  .slider {
+    height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slider {
+    height: 200px;
+    border-radius: 8px;
+  }
+
+  .caption {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    bottom: 12px;
+    left: 12px;
+  }
+
+  .dots {
+    bottom: 10px;
+    right: 12px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+}

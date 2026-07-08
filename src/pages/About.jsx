@@ -1,54 +1,42 @@
-import React from "react";
 import "../styles/About.css";
 
-function About() {
+export default function About() {
   return (
-    <div className="about-page">
-      <section className="about-hero">
-        <h1>About Tube Coffee</h1>
+    <div className="about-container">
+      <h1>About Tube Coffee</h1>
+      <p className="about-subtitle">
+        A simple coffee recipe web app built for learning React.
+      </p>
 
-        <p>
-          Tube Coffee Recipe Book is a simple coffee website that helps users
-          discover, review, and save their favorite drink recipes easily.
-        </p>
-      </section>
-
-      <section className="about-content">
-        <div className="about-card">
-          <h2>Our Purpose</h2>
+      <div className="about-card">
+        <section className="about-section">
+          <h2>What is Tube Coffee?</h2>
           <p>
-            This project helps coffee lovers explore different drinks, learn
-            recipe details, and organize their favorite coffee choices.
+            <b>Tube Coffee</b> lets you explore different drinks like Coffee,
+            Tea, and Frappe, save your favorites, and create your own custom
+            recipes.
           </p>
-        </div>
+        </section>
 
-        <div className="about-card">
-          <h2>What Users Can Do</h2>
-          <p>
-            Users can browse the menu, search for drinks, view recipe details,
-            and save drinks they like to the favorites page.
-          </p>
-        </div>
+        <section className="about-section">
+          <h2>Built With</h2>
+          <ul className="tech-list">
+            <li>React</li>
+            <li>React Router</li>
+            <li>Context API</li>
+            <li>localStorage</li>
+          </ul>
+        </section>
 
-        <div className="about-card">
-          <h2>Why We Built It</h2>
-          <p>
-            We built this website to make coffee recipes more attractive,
-            organized, and easy to review for everyone.
-          </p>
-        </div>
-      </section>
-
-      <section className="about-highlight">
-        <h2>Made with React & Vite</h2>
-
-        <p>
-          This project uses reusable components, page routing, clean styling,
-          and smooth page transitions to improve the user experience.
-        </p>
-      </section>
+        <section className="about-section">
+          <h2>Team</h2>
+          <ul className="team-list">
+            <li>Onimaru Mika</li>
+            <li>Rith Monyleaphea</li>
+            <li>Bun Long Kouch</li>
+          </ul>
+        </section>
+      </div>
     </div>
   );
 }
-
-export default About;

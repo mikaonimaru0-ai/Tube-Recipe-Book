@@ -80,3 +80,48 @@
     width: 100%;
     font-size: 15px;
 }
+
+@media (max-width: 768px) {
+  .home {
+    padding: 24px;
+  }
+
+  .home h1 {
+    font-size: 32px;
+  }
+
+  .home p {
+    width: 90%;
+    font-size: 16px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home {
+    padding: 16px;
+  }
+
+  .home h1 {
+    font-size: 26px;
+    margin-top: 20px;
+  }
+
+  .hero-image {
+    width: 100%;
+  }
+
+  .home p {
+    width: 100%;
+    font-size: 15px;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 12px 20px;
+  }
+}

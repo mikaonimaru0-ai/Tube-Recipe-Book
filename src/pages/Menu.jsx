@@ -1,17 +1,20 @@
 import { useState } from "react";
 import SearchBar from "../components/SearchBar";
 import DrinkCard from "../components/DrinkCard";
-import drinks from "../data/drinks";
+import { useDrinkContext } from "../context/DrinkContext";
 
 import "../styles/Menu.css";
 
 export default function Menu() {
+  const { allDrinks } = useDrinkContext();
+
   const [search, setSearch] = useState("");
+  const [ingredientSearch, setIngredientSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
 
   const categories = ["All", "Coffee", "Tea & Refreshment", "Frappe"];
 
-  const filteredDrinks = drinks.filter((drink) => {
+  const filteredDrinks = allDrinks.filter((drink) => {
     const matchesSearch = drink.name
       .toLowerCase()
       .includes(search.toLowerCase());
@@ -19,12 +22,18 @@ export default function Menu() {
     const matchesCategory =
       activeCategory === "All" || drink.category === activeCategory;
 
-    return matchesSearch && matchesCategory;
+    const matchesIngredient =
+      ingredientSearch.trim() === "" ||
+      drink.ingredients?.some((ingredient) =>
+        ingredient.toLowerCase().includes(ingredientSearch.toLowerCase())
+      );
+
+    return matchesSearch && matchesCategory && matchesIngredient;
   });
 
   return (
     <div className="menu">
-      <h1> Coffee Menu</h1>
+      <h1>Coffee Menu</h1>
 
       <p className="subtitle">
         Explore our delicious coffee recipes.
@@ -34,6 +43,15 @@ export default function Menu() {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
+
+      <div className="ingredient-filter">
+        <input
+          type="text"
+          value={ingredientSearch}
+          onChange={(e) => setIngredientSearch(e.target.value)}
+          placeholder="Filter by ingredient, example: milk, honey, tea..."
+        />
+      </div>
 
       <div className="category-filters">
         {categories.map((cat) => (

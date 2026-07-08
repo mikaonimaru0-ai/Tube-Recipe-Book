@@ -36,7 +36,7 @@
 
 .heart-icon {
   font-size: 60px;
-  color: #d4af37;
+  color: #d47037;
   margin-bottom: 10px;
 }
 
@@ -181,29 +181,48 @@
 }
 
 @media (max-width: 900px) {
-  .favorites-grid {
+  .favorites-grid,
+  .favorite-tips {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 600px) {
+  .favorites-page {
+    padding: 30px 15px;
+  }
+
   .favorites-box h1,
   .favorites-header h1 {
-    font-size: 34px;
+    font-size: 30px;
+  }
+
+  .favorites-header p {
+    font-size: 16px;
+  }
+
+  .favorites-card,
+  .favorites-empty-card {
+    padding: 30px 20px;
   }
 
   .favorites-grid,
   .favorite-tips {
     grid-template-columns: 1fr;
+    gap: 18px;
   }
 
-  .favorite-info .details-btn {
-    margin-right: 0;
-    margin-bottom: 10px;
+  .favorite-drink-card img {
+    height: 180px;
   }
 
+  .favorite-info h2 {
+    font-size: 20px;
+  }
+
+  .favorite-info .details-btn,
   .remove-btn {
-    display: block;
-    margin: 0 auto;
+    padding: 8px 14px;
+    font-size: 14px;
   }
 }

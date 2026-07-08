@@ -129,9 +129,15 @@ Provides information about the purpose of the project and its development.
 
 ## Author
 
-Name: 
+Contributors
 
-Course: 
+This project was developed by:
+
+Onimaru Mika
+Rith Monyleaphea
+Bun Long Kouch
+
+Course: Web development II
 
 Institution: American University of Phnom Penh
 

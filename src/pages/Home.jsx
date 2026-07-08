@@ -5,10 +5,8 @@ import HeroSlider from "../components/HeroSlider";
 export default function Home() {
   return (
     <div className="home">
-      {/* Hero Slider */}
       <HeroSlider />
 
-      {/* Welcome Section */}
       <h1> Welcome to Tube Coffee </h1>
 
       <p>
@@ -22,7 +20,6 @@ export default function Home() {
         <button className="btn">Explore Menu</button>
       </Link>
 
-      {/* Featured Drinks */}
       <section className="section">
         <h2>Featured Drinks</h2>
 
@@ -49,7 +46,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose Us */}
       <section className="section">
         <h2>Why Choose Tube Coffee?</h2>
 

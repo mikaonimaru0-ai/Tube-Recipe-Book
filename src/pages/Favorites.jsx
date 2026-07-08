@@ -1,30 +1,16 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useDrinkContext } from "../context/DrinkContext";
 import "../styles/Favorites.css";
 
 export default function Favorites() {
-  const [favorites, setFavorites] = useState([]);
-
-  useEffect(() => {
-    const savedFavorites =
-      JSON.parse(localStorage.getItem("favoriteDrinks")) || [];
-
-    setFavorites(savedFavorites);
-  }, []);
-
-  const removeFavorite = (id) => {
-    const updatedFavorites = favorites.filter((drink) => drink.id !== id);
-
-    setFavorites(updatedFavorites);
-    localStorage.setItem("favoriteDrinks", JSON.stringify(updatedFavorites));
-  };
+  const { favoriteDrinks, removeFavorite } = useDrinkContext();
 
   return (
     <div className="favorites-page">
       <div className="favorites-box">
         <h1>My Top Favorites</h1>
 
-        {favorites.length === 0 ? (
+        {favoriteDrinks.length === 0 ? (
           <div className="favorites-card">
             <div className="heart-icon">♡</div>
 
@@ -41,7 +27,7 @@ export default function Favorites() {
           </div>
         ) : (
           <div className="favorites-grid">
-            {favorites.map((drink) => (
+            {favoriteDrinks.map((drink) => (
               <div className="favorite-drink-card" key={drink.id}>
                 <img src={drink.image} alt={drink.name} />
 
