@@ -1,3 +1,5 @@
+import { Routes, Route, Navigate } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import PageTransition from "./components/PageTransition";
@@ -22,6 +24,7 @@ export default function App() {
           <Route path="/add" element={<AddRecipe />} />
           <Route path="/about" element={<About />} />
           <Route path="/drink/:id" element={<DrinkDetails />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </PageTransition>
 
